@@ -1,0 +1,132 @@
+.machine {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  padding: 0 10px 5px;
+  font-size: 1.1em;
+  background: #ffffff55;
+  z-index: 9;
+  touch-action: none;
+}
+
+.machine * {
+  box-sizing: border-box;
+}
+
+section {
+  margin: 10px 0 0;
+}
+
+.button {
+  width: 50px;
+  height: 35px;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 1px solid #00000080;
+  border-radius: 0;
+  line-height: 0;
+  appearance: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    background: #ffffff55;
+  }
+}
+
+.button:active {
+  background: #ffffffaa;
+}
+
+.button-container .button:first-of-type {
+  float: left;
+}
+
+.button-container .button:last-of-type {
+  float: right;
+}
+
+.button-text {
+  font-family: inherit;
+  font-size: 0.9em;
+}
+
+.button-wide {
+  width: 100%;
+}
+
+.quantity {
+  width: 40px;
+  margin: 0 0 15px;
+}
+
+.total {
+  display: inline-block;
+  width: 20px;
+  margin: 5px;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+/* Color picker.  */
+
+.machine .color-picker {
+  display: block;
+  height: 20px;
+  width: 100%;
+  margin: 3px 5px 5px 0;
+  padding: 0;
+  border: 1px solid #00000080;
+  border-radius: 0;
+  background: 0;
+}
+
+.machine div[id^=popover] {
+  top: 15px !important;
+  left: -3px !important;
+  background: #ffffff40;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Hex/rgba text fields, opcity slider and swatch. */
+.machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(3),
+.machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(2) > div > div:last-child,
+.machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) {
+  display: none;
+}
+
+/* Color picker and wrapper. */
+.machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(1) {
+  width: 200px;
+  height: 200px;
+}
+
+/* Color picker arapper. */
+.machine div[id^=popover] > div:nth-child(2) > div {
+  width: 200px;
+}
+
+/* Pop-over inner wrapper. */
+.machine div[id^=popover] > div:nth-child(2) {
+  padding: 10px;
+}
+
+/* Color slider wrapper. */
+.machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(2) {
+  margin-bottom: 0;
+}
+
+/* Color slider. */
+.machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(2) > div {
+  margin-right: 0;
+}
+
+/* Pop-over "tail". */
+.machine div[id^=arrow] {
+  display: none;
+}

@@ -1,0 +1,15 @@
+.settings {
+  position: absolute;
+  bottom: 0;
+  max-height: calc(100% - 40px);
+  overflow-y: auto; 
+  margin: 20px;
+  padding: 10px;
+  background: #ffffff55;
+  z-index: 5;
+  touch-action: none;
+}
+
+.settings section:first-child {
+  margin: 0;
+}
