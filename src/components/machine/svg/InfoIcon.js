@@ -13,8 +13,8 @@ InfoIcon.propTypes = {
 }
 
 InfoIcon.defaultProps = {
-  fill: '#000',
-  stroke: '#000'
+  fill: '#ffffff40',
+  stroke: '#000000aa'
 }
 
 export default InfoIcon

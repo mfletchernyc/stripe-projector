@@ -91,7 +91,7 @@ const Machine = () => {
           className={classNames(styles.button, styles.quantity)}
           onClick={() => dispatch(removeStripe())}
         >
-          <RemoveIcon fill="#ffffff40" stroke="#000000aa" />
+          <RemoveIcon />
         </button>
 
         <span className={styles.total}>
@@ -103,7 +103,7 @@ const Machine = () => {
           className={classNames(styles.button, styles.quantity)}
           onClick={() => dispatch(addStripe({ settings, colors }))}
         >
-          <AddIcon fill="#ffffff40" stroke="#000000aa" />
+          <AddIcon />
         </button>
       </section>
 
@@ -131,7 +131,7 @@ const Machine = () => {
           className={[styles.button]}
           onClick={() => dispatch(toggleConfig())}
         >
-          <SettingsIcon fill={config ? '#ffffffaa' : '#ffffff40'} stroke="#000000aa" />
+          <SettingsIcon fill={config ? '#ffffffaa' : '#ffffff40'} />
         </button>
 
         <button
@@ -139,7 +139,7 @@ const Machine = () => {
           className={styles.button}
           onClick={() => dispatch(toggleInfo())}
         >
-          <InfoIcon fill={info ? '#ffffffaa' : '#ffffff40'} stroke="#000000aa" />
+          <InfoIcon fill={info ? '#ffffffaa' : '#ffffff40'} />
         </button>
       </section>
 
@@ -149,7 +149,7 @@ const Machine = () => {
           className={classNames(styles.button, styles['button-wide'])}
           onClick={() => reset()}
         >
-          <ResetIcon fill="#ffffff40" stroke="#000000aa" />
+          <ResetIcon />
         </button>
       </section>
 
