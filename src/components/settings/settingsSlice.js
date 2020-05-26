@@ -14,9 +14,9 @@ export const settingsSlice = createSlice({
   }
 })
 
-export const { changeRange, toggleConfig } = settingsSlice.actions
+export const { changeRange } = settingsSlice.actions
 
 export const selectSettings = (state) => state.settings
-export const selectConfig = (state) => state.machine.config
+export const selectConfig = (state) => state.machine.prefs.config
 
 export default settingsSlice.reducer

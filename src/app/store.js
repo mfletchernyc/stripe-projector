@@ -22,16 +22,22 @@ const initialMachine = {
   background: randomColor()
 }
 
+const spPrefs = JSON.parse(localStorage.getItem('sp-prefs'))
+
 const preloadedState = {
   settings: initialSettings,
   machine: {
     ...initialMachine,
-    mode: localStorage.getItem('mode') || 'pop',
-    type: localStorage.getItem('type') || 'sharp',
-    info: localStorage.getItem('info') === 'true',
-    config: localStorage.getItem('config') === 'true'
+    prefs: {
+      mode: (spPrefs && spPrefs.mode) || 'pop',
+      type: (spPrefs && spPrefs.type) || 'sharp',
+      info: spPrefs && spPrefs.info === 'true',
+      config: spPrefs && spPrefs.config === 'true'
+    }
   }
 }
+
+localStorage.setItem('sp-prefs', JSON.stringify(preloadedState.machine.prefs))
 
 export default configureStore({
   reducer,

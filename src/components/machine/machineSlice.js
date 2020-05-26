@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import stripeObject from '../../app/stripeObject'
 
+const savePrefs = (state) => {
+  localStorage.setItem('sp-prefs', JSON.stringify(state.prefs))
+}
+
 export const machineSlice = createSlice({
   name: 'machine',
   initialState: {},
@@ -72,35 +76,33 @@ export const machineSlice = createSlice({
     },
 
     toggleType: (state) => {
-      const { type } = state
+      const { prefs: { type } } = state
 
-      state.type = type === 'sharp' ? 'blur' : 'sharp'
-      localStorage.setItem('type', state.type)
+      state.prefs.type = type === 'sharp' ? 'blur' : 'sharp'
+      savePrefs(state)
     },
 
     toggleMode: (state) => {
-      const { mode } = state
+      const { prefs: { mode } } = state
 
-      state.mode = mode === 'pop' ? 'move' : 'pop'
-      localStorage.setItem('mode', state.mode)
+      state.prefs.mode = mode === 'pop' ? 'move' : 'pop'
+      savePrefs(state)
     },
 
     toggleInfo: (state) => {
-      const { info } = state
+      const { prefs: { info } } = state
 
-      state.info = !info
-      state.config = false
-      localStorage.setItem('info', state.info)
-      localStorage.setItem('config', false)
+      state.prefs.info = !info
+      state.prefs.config = false
+      savePrefs(state)
     },
 
     toggleConfig: (state) => {
-      const { config } = state
+      const { prefs: { config } } = state
 
-      state.config = !config
-      state.info = false
-      localStorage.setItem('config', state.config)
-      localStorage.setItem('info', false)
+      state.prefs.config = !config
+      state.prefs.info = false
+      savePrefs(state)
     }
   }
 })

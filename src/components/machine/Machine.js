@@ -31,9 +31,11 @@ const Machine = () => {
     stripes,
     colors,
     background,
-    mode,
-    config,
-    info
+    prefs: {
+      mode,
+      config,
+      info
+    }
   } = useSelector(selectMachine)
 
   let colorPickerIndex = 0

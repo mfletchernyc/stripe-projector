@@ -8,7 +8,7 @@ import styles from './Display.module.css'
 
 const Display = () => {
   const {
-    stripes, background, type, info
+    stripes, background, prefs: { type, info }
   } = useSelector(selectMachine)
 
   return (
