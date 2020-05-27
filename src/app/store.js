@@ -31,8 +31,8 @@ const preloadedState = {
     prefs: {
       mode: (spPrefs && spPrefs.mode) || 'pop',
       type: (spPrefs && spPrefs.type) || 'sharp',
-      info: spPrefs && spPrefs.info === 'true',
-      config: spPrefs && spPrefs.config === 'true'
+      info: spPrefs && spPrefs.info,
+      config: spPrefs && spPrefs.config
     }
   }
 }
