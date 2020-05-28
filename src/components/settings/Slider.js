@@ -57,12 +57,17 @@ const Track = ({
 const Slider = (props) => {
   const { values, onChange } = props
 
+  const valuesArray = 
+    values.current
+    ? [values.current]
+    : [values.low, values.high]
+
   return (
     <CompoundSlider
       mode={2}
       step={1}
       domain={[values.min, values.max]}
-      values={[values.low, values.high]}
+      values={valuesArray}
       rootStyle={sliderStyle}
       onChange={onChange}
     >
@@ -104,8 +109,10 @@ Slider.propTypes = {
   values: PropTypes.shape({
     min: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,
-    low: PropTypes.number.isRequired,
-    high: PropTypes.number.isRequired,
+    // TO DO: should require current OR high/low.
+    current: PropTypes.number,
+    low: PropTypes.number,
+    high: PropTypes.number
   }).isRequired,
   onChange: PropTypes.func.isRequired
 }

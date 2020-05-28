@@ -70,7 +70,9 @@ const Machine = () => {
   }
 
   const popMode = mode === 'pop'
-  const timer = popMode ? settings.cycleTime : settings.moveTime
+  const timer = popMode
+    ? settings.cycleTime.current
+    : settings.moveTime.current
 
   useInterval(() => {
     if (popMode) {
@@ -79,7 +81,7 @@ const Machine = () => {
     } else {
       dispatch(moveStripes(stripes))
     }
-  }, timer * 1000)
+  }, timer)
 
   window.onload = () => {
     dispatch(changeBackground({ hex: background }))

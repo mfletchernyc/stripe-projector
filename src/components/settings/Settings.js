@@ -3,14 +3,19 @@ import { useSelector, useDispatch } from 'react-redux'
 import parse from 'html-react-parser'
 import Slider from './Slider'
 
-import { changeRange, selectSettings, selectConfig } from './settingsSlice'
+import {
+  changeValue,
+  changeRange,
+  selectSettings,
+  selectMachine
+} from "./settingsSlice";
 
 import styles from './Settings.module.css'
 
 const Settings = () => {
   const dispatch = useDispatch()
   const settings = useSelector(selectSettings)
-  const config = useSelector(selectConfig)
+  const { prefs: { mode, config } } = useSelector(selectMachine)
 
   let settingsList = JSON.stringify(settings) // Temporary.
   settingsList = settingsList
@@ -23,26 +28,48 @@ const Settings = () => {
     .replace(/\]/g, '<br />]')
     .replace(/,/g, '')
 
-  const renderSlider = (setting) => (
+  const renderSimpleSlider = (setting) => (
     <>
       {`${setting}:`}
       <Slider
-        values={settings[`${setting}Limits`]}
-        onChange={(values) => dispatch(changeRange(
-          { setting: `${setting}Limits`, values }
+        values={settings[`${setting}`]}
+        onChange={(values) => dispatch(changeValue(
+          { setting: `${setting}`, values }
         ))}
-      />
+      /> 
     </>
   )
+
+  const renderCompoundSlider = (setting) => (
+    <>
+      {`${setting}:`}
+      <Slider
+        values={settings[`${setting}`]}
+        onChange={(values) => dispatch(changeRange(
+          { setting: `${setting}`, values }
+        ))}
+      /> 
+    </>
+  )
+
+  const speedControl = () => {
+    return mode === 'pop'
+      ? 'cycleTime'
+      : 'moveTime'
+  }
 
   return config ? (
     <div className={styles.settings}>
       <section>
-        {renderSlider('opacity')}
-        {renderSlider('width')}
+        {renderCompoundSlider('opacity')}
+        {renderCompoundSlider('width')}
+
+        {renderSimpleSlider(speedControl())}
       </section>
 
-      <section>{parse(settingsList)}</section>
+      <section className={styles.list}>
+        {parse(settingsList)}
+      </section>
     </div>
   )
     : null
