@@ -8,7 +8,7 @@ import {
   changeRange,
   selectSettings,
   selectMachine
-} from "./settingsSlice";
+} from './settingsSlice'
 
 import styles from './Settings.module.css'
 
@@ -36,7 +36,7 @@ const Settings = () => {
         onChange={(values) => dispatch(changeValue(
           { setting: `${setting}`, values }
         ))}
-      /> 
+      />
     </>
   )
 
@@ -48,15 +48,15 @@ const Settings = () => {
         onChange={(values) => dispatch(changeRange(
           { setting: `${setting}`, values }
         ))}
-      /> 
+      />
     </>
   )
 
-  const speedControl = () => {
-    return mode === 'pop'
+  const speedControl = () => (
+    mode === 'pop'
       ? 'cycleTime'
       : 'moveTime'
-  }
+  )
 
   return config ? (
     <div className={styles.settings}>

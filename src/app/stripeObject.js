@@ -7,7 +7,7 @@ const stripeObject = (id, colors, settings) => {
     opacity,
     width
   } = settings
-  
+
   const color = colors[randomInteger(0, colors.length - 1)]
 
   position = randomInteger(position.min, position.max)

@@ -19,13 +19,12 @@ const Handle = ({
   getHandleProps
 }) => {
   // Second range slider handle points up.
-  const rotationStyle =
-    id.substr(-1) === '0'
-      ? null
-      : {
-        transform: 'rotate(180deg)',
-        marginTop: 0
-      }
+  const rotationStyle = id.substr(-1) === '0'
+    ? null
+    : {
+      transform: 'rotate(180deg)',
+      marginTop: 0
+    }
 
   return (
     <div
@@ -57,8 +56,7 @@ const Track = ({
 const Slider = (props) => {
   const { values, onChange } = props
 
-  const valuesArray = 
-    values.current
+  const valuesArray = values.current
     ? [values.current]
     : [values.low, values.high]
 

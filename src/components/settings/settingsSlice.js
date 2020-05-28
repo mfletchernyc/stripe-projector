@@ -6,8 +6,9 @@ export const settingsSlice = createSlice({
   reducers: {
     changeValue: (state, action) => {
       const { payload: { setting, values } } = action
+      const [current] = values
 
-      state[setting].current = values[0]
+      state[setting].current = current
     },
     changeRange: (state, action) => {
       const { payload: { setting, values } } = action
