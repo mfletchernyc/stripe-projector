@@ -1,6 +1,7 @@
 .settings {
   position: absolute;
   bottom: 0;
+  min-width: 125px;
   max-height: calc(100% - 40px);
   overflow-y: auto; 
   margin: 20px;
@@ -12,4 +13,8 @@
 
 .settings section:first-child {
   margin: 0;
+}
+
+.list {
+  font-size: 0.7em;
 }

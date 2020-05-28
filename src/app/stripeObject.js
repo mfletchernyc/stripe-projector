@@ -1,18 +1,19 @@
 import { randomInteger } from './randomThings'
 
 const stripeObject = (id, colors, settings) => {
-  const {
-    positionLimits,
-    directionLimits,
-    opacityLimits,
-    widthLimits
+  let {
+    position,
+    direction,
+    opacity,
+    width
   } = settings
-
-  const position = randomInteger(positionLimits.min, positionLimits.max)
-  const direction = randomInteger(directionLimits.min, directionLimits.max) / 100
+  
   const color = colors[randomInteger(0, colors.length - 1)]
-  const opacity = randomInteger(opacityLimits.low, opacityLimits.high) / 100
-  const width = randomInteger(widthLimits.low, widthLimits.high)
+
+  position = randomInteger(position.min, position.max)
+  direction = randomInteger(direction.min, direction.max) / 100
+  opacity = randomInteger(opacity.low, opacity.high) / 100
+  width = randomInteger(width.low, width.high)
 
   return {
     id,

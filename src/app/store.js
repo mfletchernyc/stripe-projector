@@ -13,8 +13,8 @@ const reducer = {
   settings: settingsReducer
 }
 
-const { colorLimits } = initialSettings
-const colors = randomColorArray(colorLimits.min, colorLimits.max)
+const { color } = initialSettings
+const colors = randomColorArray(color.min, color.max)
 
 const initialMachine = {
   stripes: initialStripes(initialSettings, colors),

@@ -7,11 +7,19 @@ const limits = {
     min: 1,
     max: 10
   },
+  cycleTimeLimits: {  // Milliseconds.
+    min: 100,
+    max: 4000
+  },
+  moveTimeLimits: {   // Milliseconds.
+    min: 1,
+    max: 500
+  },
   positionLimits: {   // Screen width percentage.
     min: 0,
     max: 100
   },
-  directionLimits: {   // Same.
+  directionLimits: {   // Screen width percentage.
     min: -10,
     max: 10
   },
@@ -30,22 +38,32 @@ const limits = {
 }
 
 const population = randomInteger(limits.populationLimits.min, limits.populationLimits.max)
+
+const cycleTime = 2000  // TO DO: make random? Or keep
+const moveTime = 100    // using these reasonable values?
+
 const opacityRange = randomRange(limits.opacityLimits.min, limits.opacityLimits.max)
 const widthRange = randomRange(limits.widthLimits.min, limits.widthLimits.max)
 
 const initialSettings = {
-  cycleTime: 2,   // Seconds.
-  moveTime: 0.05, // Same.
   population,
-  positionLimits: limits.positionLimits,
-  directionLimits: limits.directionLimits,
-  colorLimits: limits.colorLimits,
-  opacityLimits: {
+  cycleTime: {
+    ...limits.cycleTimeLimits,
+    current: cycleTime
+  },
+  moveTime: {
+    ...limits.moveTimeLimits,
+    current: moveTime
+  },
+  position: limits.positionLimits,
+  direction: limits.directionLimits,
+  color: limits.colorLimits,
+  opacity: {
     ...limits.opacityLimits,
     low: opacityRange[0],
     high: opacityRange[1]
   },
-  widthLimits: {
+  width: {
     ...limits.widthLimits,
     low: widthRange[0],
     high: widthRange[1]
