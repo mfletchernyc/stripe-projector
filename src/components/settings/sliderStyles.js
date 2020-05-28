@@ -1,10 +1,16 @@
-// Slider needs a style object, not css.
+// Slider needs style objects vs. css.
+
+const triangle = window.encodeURIComponent(
+  `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="16.5" viewBox="0 0 22 16.5">
+    <polygon fill="#ffffff" stroke="#00000080" stroke-miterlimit="10" points="11,15.5 1,0.5 21,0.5 "/>
+  </svg>`
+)
 
 export const sliderStyle = {
   position: 'relative',
   width: 'calc(100% - 10px)',
   height: 20,
-  margin: '15px 5px 0'
+  margin: '20px 5px 5px'
 }
 
 export const railStyle = {
@@ -16,15 +22,14 @@ export const railStyle = {
 
 export const handleStyle = {
   position: 'absolute',
-  marginLeft: -5,
-  marginTop: -10,
+  marginLeft: -11,
+  marginTop: -15.5,
   zIndex: 2,
-  width: 10,
-  height: 20,
+  width: 22,
+  height: 16.5,
   textAlign: 'center',
-  border: '1px solid #00000080',
   cursor: 'pointer',
-  backgroundColor: '#fff',
+  background: `url('data:image/svg+xml;utf8,${triangle}')`,
   touchAction: 'pan-x'
 }
 

@@ -8,21 +8,36 @@ import {
 } from 'react-compound-slider'
 
 import {
-  sliderStyle, railStyle, handleStyle, trackStyle
+  sliderStyle,
+  railStyle,
+  handleStyle,
+  trackStyle
 } from './sliderStyles'
 
 const Handle = ({
   handle: { id, percent },
   getHandleProps
-}) => (
-  <div
-    style={{
-      left: `${percent}%`,
-      ...handleStyle
-    }}
-    {...getHandleProps(id)} // eslint-disable-line react/jsx-props-no-spreading
-  />
-)
+}) => {
+  // Second range slider handle points up.
+  const rotationStyle =
+    id.substr(-1) === '0'
+      ? null
+      : {
+        transform: 'rotate(180deg)',
+        marginTop: 0
+      }
+
+  return (
+    <div
+      style={{
+        left: `${percent}%`,
+        ...handleStyle,
+        ...rotationStyle
+      }}
+      {...getHandleProps(id)} // eslint-disable-line react/jsx-props-no-spreading
+    />
+  )
+}
 
 const Track = ({
   source,
@@ -45,7 +60,7 @@ const Slider = (props) => {
   return (
     <CompoundSlider
       mode={2}
-      step={3}
+      step={1}
       domain={[values.min, values.max]}
       values={[values.low, values.high]}
       rootStyle={sliderStyle}
