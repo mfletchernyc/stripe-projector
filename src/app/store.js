@@ -32,7 +32,8 @@ const preloadedState = {
       mode: (spPrefs && spPrefs.mode) || 'pop',
       type: (spPrefs && spPrefs.type) || 'sharp',
       info: spPrefs && spPrefs.info,
-      config: spPrefs && spPrefs.config
+      config: spPrefs && spPrefs.config,
+      debug: !!new URLSearchParams(window.location.search).toString().match('debug')
     }
   }
 }
