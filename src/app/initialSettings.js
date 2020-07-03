@@ -39,7 +39,7 @@ const limits = {
 
 const population = randomInteger(limits.populationLimits.min, limits.populationLimits.max)
 
-const cycleTime = 2000  // TO DO: make random? Or keep
+const cycleTime = 1000  // TO DO: make random? Or keep
 const moveTime = 100    // using these reasonable values?
 
 const opacityRange = randomRange(limits.opacityLimits.min, limits.opacityLimits.max)
