@@ -1,9 +1,8 @@
 .settings {
   position: absolute;
+  right: 0;
   bottom: 0;
-  min-width: 125px;
-  max-height: calc(100% - 40px);
-  overflow-y: auto; 
+  width: 130px;
   margin: 20px;
   padding: 10px;
   background: #ffffff55;

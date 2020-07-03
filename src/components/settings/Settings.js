@@ -52,7 +52,7 @@ const Settings = () => {
       : 'moveTime'
   )
 
-  return config ? (
+  return (
     <div className={styles.settings}>
       <section>
         {renderCompoundSlider('opacity')}
@@ -62,7 +62,6 @@ const Settings = () => {
       </section>
     </div>
   )
-    : null
 }
 
 export default Settings

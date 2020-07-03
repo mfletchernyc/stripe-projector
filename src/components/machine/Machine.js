@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import classNames from 'classnames'
 import ColorPicker from './ColorPicker'
 import useInterval from './useInterval'
-import {
-  InfoIcon, SettingsIcon, ResetIcon, AddIcon, RemoveIcon
-} from './svg'
+import { ResetIcon, AddIcon, RemoveIcon } from './svg'
 
 import {
   addStripe,
@@ -126,24 +124,6 @@ const Machine = () => {
           onClick={() => dispatch(toggleMode())}
         >
           mode
-        </button>
-      </section>
-
-      <section className={styles['button-container']}>
-        <button
-          type="button"
-          className={[styles.button]}
-          onClick={() => dispatch(toggleConfig())}
-        >
-          <SettingsIcon fill={config ? '#ffffffaa' : '#ffffff40'} />
-        </button>
-
-        <button
-          type="button"
-          className={styles.button}
-          onClick={() => dispatch(toggleInfo())}
-        >
-          <InfoIcon fill={info ? '#ffffffaa' : '#ffffff40'} />
         </button>
       </section>
 
