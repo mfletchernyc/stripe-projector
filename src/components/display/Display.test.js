@@ -11,7 +11,7 @@ const wrapper = mount(
   </Provider>
 )
 
-console.log(wrapper.debug())
+console.log(wrapper.debug()) // eslint-disable-line no-console
 
 it('needs to read from the store', () => {
   // ...to compare with elements in the wrapper.

@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import parse from 'html-react-parser'
 import Slider from './Slider'
 
 import {
@@ -10,23 +9,16 @@ import {
   selectMachine
 } from './settingsSlice'
 
-import styles from './Settings.module.css'
-
 const Settings = () => {
   const dispatch = useDispatch()
   const settings = useSelector(selectSettings)
-  const { prefs: { mode, config } } = useSelector(selectMachine)
+  const { prefs: { mode, debug } } = useSelector(selectMachine)
 
-  let settingsList = JSON.stringify(settings) // Temporary.
-  settingsList = settingsList
-    .substring(1, settingsList.length - 1)
-    .replace(/{/g, '{<br />')
-    .replace(/}/g, '<br />}')
-    .replace(/:/g, ': ')
-    .replace(/,/g, ',<br />')
-    .replace(/\[/g, '[<br />')
-    .replace(/\]/g, '<br />]')
-    .replace(/,/g, '')
+  useEffect(() => {
+    if (debug) {
+      console.log(JSON.stringify(settings, null, 2)) // eslint-disable-line no-console
+    }
+  }, [debug, settings])
 
   const renderSimpleSlider = (setting) => (
     <>
@@ -53,26 +45,16 @@ const Settings = () => {
   )
 
   const speedControl = () => (
-    mode === 'pop'
-      ? 'cycleTime'
-      : 'moveTime'
+    mode === 'pop' ? 'cycleTime' : 'moveTime'
   )
 
-  return config ? (
-    <div className={styles.settings}>
-      <section>
-        {renderCompoundSlider('opacity')}
-        {renderCompoundSlider('width')}
-
-        {renderSimpleSlider(speedControl())}
-      </section>
-
-      <section className={styles.list}>
-        {parse(settingsList)}
-      </section>
-    </div>
+  return (
+    <>
+      {renderCompoundSlider('opacity')}
+      {renderCompoundSlider('width')}
+      {renderSimpleSlider(speedControl())}
+    </>
   )
-    : null
 }
 
 export default Settings

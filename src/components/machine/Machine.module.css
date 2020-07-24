@@ -2,29 +2,24 @@
   position: absolute;
   top: 0;
   right: 0;
+  display: grid;
+  gap: 10px;
+  width: 150px;
   margin: 20px;
-  padding: 0 10px 5px;
+  padding: 0 10px 10px;
   font-size: 1.1em;
   background: #ffffff55;
   z-index: 9;
   touch-action: none;
 }
 
-.machine * {
-  box-sizing: border-box;
-}
-
-section {
-  margin: 10px 0 0;
-}
-
 .button {
-  width: 50px;
+  width: 100%;
   height: 40px;
-  margin: 0 0 10px;
-  padding: 0;
   border: 1px solid #00000080;
   border-radius: 0;
+  font-family: inherit;
+  font-size: 0.9em;
   line-height: 0;
   appearance: none;
   background: none;
@@ -42,58 +37,58 @@ section {
   background: #ffffffaa;
 }
 
-.button-container .button:first-of-type {
-  float: left;
-}
-
-.button-container .button:last-of-type {
-  float: right;
-}
-
-.button-text {
-  font-family: inherit;
-  font-size: 0.9em;
-}
-
-.button-wide {
-  width: 100%;
-}
-
 .quantity {
-  width: 40px;
-  margin: 0 0 15px;
+  display: grid;
+  grid-template-columns: 66.6% auto;
+  gap: 10px;
+  margin: 10px 0 0;
 }
 
 .total {
-  display: inline-block;
-  width: 20px;
-  margin: 8px 5px;
-  font-size: 1.25em;
-  text-align: center;
+  grid-row: 1/3;
+  grid-column: 2;
+  justify-self: end;
+  align-self: center;
+  font-size: 2.5em;
+  font-weight: 200;
+}
+
+.label {
+  display: block;
+  padding-bottom: 3px;
+}
+
+.settings {
+  /* TO DO: fix simple slider boom spacing. */
+  margin-bottom: -10px;
 }
 
 /* Color picker.  */
 
 .machine .color-picker {
   display: block;
-  height: 25px;
+  height: 30px;
   width: 100%;
-  margin: 3px 5px 5px 0;
+  margin: 0 0 10px;
   padding: 0;
   border: 1px solid #00000080;
   border-radius: 0;
   background: 0;
 }
 
+.machine .color-picker:last-child {
+  margin: 0;
+}
+
 .machine div[id^=popover] {
   top: 15px !important;
   left: -3px !important;
-  background: #ffffff40;
+  background: #ffffff55;
   border: 0;
   border-radius: 0;
 }
 
-/* Hex/rgba text fields, opcity slider and swatch. */
+/* Hex/rgba text fields, opacity slider and swatch. */
 .machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(3),
 .machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(2) > div > div:last-child,
 .machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) {
@@ -106,7 +101,7 @@ section {
   height: 200px;
 }
 
-/* Color picker arapper. */
+/* Color picker wrapper. */
 .machine div[id^=popover] > div:nth-child(2) > div {
   width: 200px;
 }

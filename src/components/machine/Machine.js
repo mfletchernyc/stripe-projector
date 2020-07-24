@@ -1,11 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import classNames from 'classnames'
+import Settings from '../settings/Settings'
 import ColorPicker from './ColorPicker'
 import useInterval from './useInterval'
-import {
-  InfoIcon, SettingsIcon, ResetIcon, AddIcon, RemoveIcon
-} from './svg'
+import { AddIcon, RemoveIcon, ResetIcon } from './svg'
 
 import {
   addStripe,
@@ -15,8 +13,6 @@ import {
   changeColor,
   toggleType,
   toggleMode,
-  toggleConfig,
-  toggleInfo,
   selectMachine,
   selectSettings
 } from './machineSlice'
@@ -31,11 +27,7 @@ const Machine = () => {
     stripes,
     colors,
     background,
-    prefs: {
-      mode,
-      config,
-      info
-    }
+    prefs: { mode }
   } = useSelector(selectMachine)
 
   let colorPickerIndex = 0
@@ -62,14 +54,8 @@ const Machine = () => {
     ))
   )
 
-  const reset = () => {
-    const reload = window.location
-
-    // reload() doesn't fix accidental double-tap zoom.
-    window.location = reload
-  }
-
   const popMode = mode === 'pop'
+
   const timer = popMode
     ? settings.cycleTime.current
     : settings.moveTime.current
@@ -87,78 +73,55 @@ const Machine = () => {
     dispatch(changeBackground({ hex: background }))
   }
 
+  const reset = () => {
+    const reload = window.location
+
+    // reload() doesn't fix accidental double-tap zoom.
+    window.location = reload
+  }
+
   return (
     <div className={styles.machine}>
-      <section className={styles['button-container']}>
+      <section className={styles.quantity}>
         <button
           type="button"
-          className={classNames(styles.button, styles.quantity)}
+          className={styles.button}
           onClick={() => dispatch(removeStripe())}
         >
           <RemoveIcon />
         </button>
 
         <span className={styles.total}>
-          {stripes.length}
+          {stripes.length.toString().padStart(2, '0')}
         </span>
 
         <button
           type="button"
-          className={classNames(styles.button, styles.quantity)}
+          className={styles.button}
           onClick={() => dispatch(addStripe({ settings, colors }))}
         >
           <AddIcon />
         </button>
       </section>
 
-      <section className={styles['button-container']}>
-        <button
-          type="button"
-          className={classNames(styles.button, styles['button-text'])}
-          onClick={() => dispatch(toggleType())}
-        >
-          type
-        </button>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={() => dispatch(toggleType())}
+      >
+        type
+      </button>
 
-        <button
-          type="button"
-          className={classNames(styles.button, styles['button-text'])}
-          onClick={() => dispatch(toggleMode())}
-        >
-          mode
-        </button>
-      </section>
-
-      <section className={styles['button-container']}>
-        <button
-          type="button"
-          className={[styles.button]}
-          onClick={() => dispatch(toggleConfig())}
-        >
-          <SettingsIcon fill={config ? '#ffffffaa' : '#ffffff40'} />
-        </button>
-
-        <button
-          type="button"
-          className={styles.button}
-          onClick={() => dispatch(toggleInfo())}
-        >
-          <InfoIcon fill={info ? '#ffffffaa' : '#ffffff40'} />
-        </button>
-      </section>
-
-      <section className={styles['button-container']}>
-        <button
-          type="button"
-          className={classNames(styles.button, styles['button-wide'])}
-          onClick={() => reset()}
-        >
-          <ResetIcon />
-        </button>
-      </section>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={() => dispatch(toggleMode())}
+      >
+        mode
+      </button>
 
       <section>
-        background:
+        <span className={styles.label}>background:</span>
         {renderColorPicker(
           background,
           (newColor) => dispatch(changeBackground(newColor))
@@ -166,9 +129,21 @@ const Machine = () => {
       </section>
 
       <section>
-        colors:
+        <span className={styles.label}>stripes:</span>
         {renderColorPickers()}
       </section>
+
+      <section className={styles.settings}>
+        <Settings />
+      </section>
+
+      <button
+        type="button"
+        className={styles.button}
+        onClick={() => reset()}
+      >
+        <ResetIcon />
+      </button>
     </div>
   )
 }

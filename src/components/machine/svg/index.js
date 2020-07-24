@@ -1,9 +1,5 @@
-import InfoIcon from './InfoIcon'
-import ResetIcon from './ResetIcon'
-import SettingsIcon from './SettingsIcon'
 import AddIcon from './AddIcon'
 import RemoveIcon from './RemoveIcon'
+import ResetIcon from './ResetIcon'
 
-export {
-  InfoIcon, SettingsIcon, ResetIcon, AddIcon, RemoveIcon
-}
+export { AddIcon, RemoveIcon, ResetIcon }

@@ -24,6 +24,5 @@ export const { changeValue, changeRange } = settingsSlice.actions
 
 export const selectSettings = (state) => state.settings
 export const selectMachine = (state) => state.machine
-export const selectConfig = (state) => state.machine.prefs.config
 
 export default settingsSlice.reducer

@@ -14,7 +14,9 @@ export const machineSlice = createSlice({
       const { payload: { settings, colors } } = action
       const id = stripes.length > 0 ? stripes[stripes.length - 1].id + 1 : 0
 
-      stripes.push(stripeObject(id, colors, settings))
+      if (stripes.length < 99) {
+        stripes.push(stripeObject(id, colors, settings))
+      }
     },
 
     removeStripe: (state) => {
@@ -87,22 +89,6 @@ export const machineSlice = createSlice({
 
       state.prefs.mode = mode === 'pop' ? 'move' : 'pop'
       savePrefs(state)
-    },
-
-    toggleInfo: (state) => {
-      const { prefs: { info } } = state
-
-      state.prefs.info = !info
-      state.prefs.config = false
-      savePrefs(state)
-    },
-
-    toggleConfig: (state) => {
-      const { prefs: { config } } = state
-
-      state.prefs.config = !config
-      state.prefs.info = false
-      savePrefs(state)
     }
   }
 })
@@ -114,9 +100,7 @@ export const {
   changeBackground,
   changeColor,
   toggleType,
-  toggleMode,
-  toggleConfig,
-  toggleInfo
+  toggleMode
 } = machineSlice.actions
 
 export const selectMachine = (state) => state.machine

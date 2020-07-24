@@ -8,12 +8,12 @@ import styles from './Display.module.css'
 
 const Display = () => {
   const {
-    stripes, background, prefs: { type, info }
+    stripes, background, prefs: { type, debug }
   } = useSelector(selectMachine)
 
   return (
     <div className={styles.display}>
-      {info && infoHTML(stripes, background, styles)}
+      {debug && infoHTML(stripes, background, styles)}
       {stripesHTML(stripes, styles, type)}
     </div>
   )
