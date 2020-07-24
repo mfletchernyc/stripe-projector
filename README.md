@@ -4,7 +4,7 @@ Semi-automatic art.
 ![stripes](https://user-images.githubusercontent.com/6414141/83179395-fd913000-a0ef-11ea-967f-75023cd125fb.png)
 
 ## about
-Intended for use in a gallery connected to a projector.
+Random stripes with user-configurable options. Assumes a standard iPad; smaller devices may not have enough room to display the interface.
 
 ## debugging
 Use the ```debug``` parameter in the query string.

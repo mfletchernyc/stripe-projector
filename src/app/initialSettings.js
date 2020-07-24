@@ -25,7 +25,7 @@ const limits = {
   },
   colorLimits: {      // According to taste.
     min: 2,
-    max: 5
+    max: 4            // Current limit is 4 based on vertical real estate. TO DO: revisit.
   },
   opacityLimits: {    // Percentages.
     min: 5,

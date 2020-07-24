@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Slider from './Slider'
+import ResetIcon from './svg/ResetIcon'
 
 import {
   changeValue,
@@ -14,7 +15,7 @@ import styles from './Settings.module.css'
 const Settings = () => {
   const dispatch = useDispatch()
   const settings = useSelector(selectSettings)
-  const { prefs: { mode, config, debug } } = useSelector(selectMachine)
+  const { prefs: { mode, debug } } = useSelector(selectMachine)
 
   useEffect(() => {
     if (debug) {
@@ -52,14 +53,27 @@ const Settings = () => {
       : 'moveTime'
   )
 
+  const reset = () => {
+    const reload = window.location
+
+    // reload() doesn't fix accidental double-tap zoom.
+    window.location = reload
+  }
+
   return (
     <div className={styles.settings}>
-      <section>
-        {renderCompoundSlider('opacity')}
-        {renderCompoundSlider('width')}
+      {renderCompoundSlider('opacity')}
+      {renderCompoundSlider('width')}
 
-        {renderSimpleSlider(speedControl())}
-      </section>
+      {renderSimpleSlider(speedControl())}
+
+      <button
+        type="button"
+        className={styles.button}
+        onClick={() => reset()}
+      >
+        <ResetIcon />
+      </button>
     </div>
   )
 }
