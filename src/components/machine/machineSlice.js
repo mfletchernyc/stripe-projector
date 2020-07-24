@@ -14,7 +14,9 @@ export const machineSlice = createSlice({
       const { payload: { settings, colors } } = action
       const id = stripes.length > 0 ? stripes[stripes.length - 1].id + 1 : 0
 
-      stripes.push(stripeObject(id, colors, settings))
+      if (stripes.length < 99) {
+        stripes.push(stripeObject(id, colors, settings))
+      }
     },
 
     removeStripe: (state) => {

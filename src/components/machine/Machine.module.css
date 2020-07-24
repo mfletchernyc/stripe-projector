@@ -2,6 +2,8 @@
   position: absolute;
   top: 0;
   right: 0;
+  display: grid;
+  gap: 10px;
   width: 150px;
   margin: 20px;
   padding: 0 10px 10px;
@@ -11,13 +13,8 @@
   touch-action: none;
 }
 
-.machine section {
-  display: grid;
-  gap: 10px;
-  margin: 10px 0 0;
-}
-
 .button {
+  width: 100%;
   height: 40px;
   border: 1px solid #00000080;
   border-radius: 0;
@@ -41,7 +38,10 @@
 }
 
 .quantity {
+  display: grid;
   grid-template-columns: 66.6% auto;
+  gap: 10px;
+  margin: 10px 0 0;
 }
 
 .total {
@@ -53,27 +53,42 @@
   font-weight: 200;
 }
 
+.label {
+  display: block;
+  padding-bottom: 3px;
+}
+
+.settings {
+  /* TO DO: fix simple slider boom spacing. */
+  margin-bottom: -10px;
+}
+
 /* Color picker.  */
 
 .machine .color-picker {
   display: block;
   height: 30px;
   width: 100%;
+  margin: 0 0 10px;
   padding: 0;
   border: 1px solid #00000080;
   border-radius: 0;
   background: 0;
 }
 
+.machine .color-picker:last-child {
+  margin: 0;
+}
+
 .machine div[id^=popover] {
   top: 15px !important;
   left: -3px !important;
-  background: #ffffff40;
+  background: #ffffff55;
   border: 0;
   border-radius: 0;
 }
 
-/* Hex/rgba text fields, opcity slider and swatch. */
+/* Hex/rgba text fields, opacity slider and swatch. */
 .machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(3),
 .machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(2) > div > div:last-child,
 .machine div[id^=popover] > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) {
@@ -86,7 +101,7 @@
   height: 200px;
 }
 
-/* Color picker arapper. */
+/* Color picker wrapper. */
 .machine div[id^=popover] > div:nth-child(2) > div {
   width: 200px;
 }
