@@ -4,7 +4,7 @@ import { stripesHTML, infoHTML } from './displayHTML'
 
 import { selectMachine } from './displaySlice'
 
-import styles from './Display.module.css'
+import styles from './display.module.css'
 
 const Display = () => {
   const {

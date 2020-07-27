@@ -2,7 +2,7 @@ import React from 'react'
 
 import Display from './components/display/Display'
 import Machine from './components/machine/Machine'
-import './Projector.css'
+import './projector.css'
 
 const Projector = () => (
   <div className="Projector">

@@ -17,7 +17,7 @@ import {
   selectSettings
 } from './machineSlice'
 
-import styles from './Machine.module.css'
+import styles from './machine.module.css'
 
 const Machine = () => {
   const dispatch = useDispatch()
