@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300');
 
 html, body, #root {
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 
 body {
-  margin: 0;
   font: 13px 'Source Sans Pro';
+  margin: 0;
 }
 
 body * {
@@ -15,7 +15,7 @@ body * {
 }
 
 .Projector {
+  height: 100%;
   position: relative;
   width: 100%;
-  height: 100%;
 }
