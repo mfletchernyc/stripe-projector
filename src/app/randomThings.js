@@ -1,8 +1,18 @@
-export const randomInteger = (min, max) => ( // Inclusive.
-  Math.floor(Math.random() * (max - min + 1)) + min
-)
+const checkInputs = (min, max) => {
+  if (!Number.isInteger(min) || !Number.isInteger(max) || min >= max) {
+    throw new Error('Error: min/max settings must be ints with max > min.')
+  }
+}
+
+export const randomInteger = (min, max) => { // Inclusive.
+  checkInputs(min, max)
+
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
 export const randomRange = (min, max) => {
+  checkInputs(min, max)
+
   const x = randomInteger(min, max)
   const y = randomInteger(min, max)
 

@@ -2,6 +2,7 @@ import { randomInteger, randomRange } from './randomThings'
 
 /* eslint no-multi-spaces: 0 */
 
+// Integers only. Min must be less than max.
 const limits = {
   populationLimits: { // At least 1 to start?
     min: 1,
