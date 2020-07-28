@@ -7,38 +7,38 @@ const triangle = window.encodeURIComponent(
 )
 
 export const sliderStyle = {
-  position: 'relative',
-  width: 'calc(100% - 10px)',
   height: 20,
-  margin: '20px 5px 5px'
+  margin: '20px 5px 5px',
+  position: 'relative',
+  width: 'calc(100% - 10px)'
 }
 
 export const railStyle = {
-  position: 'absolute',
-  width: '100%',
+  backgroundColor: '#00000080',
   height: 1,
-  backgroundColor: '#00000080'
+  position: 'absolute',
+  width: '100%'
 }
 
 export const handleStyle = {
-  position: 'absolute',
+  background: `url('data:image/svg+xml;utf8,${triangle}')`,
+  cursor: 'pointer',
+  height: 16.5,
   marginLeft: -11,
   marginTop: -15.5,
-  zIndex: 2,
-  width: 22,
-  height: 16.5,
+  position: 'absolute',
   textAlign: 'center',
-  cursor: 'pointer',
-  background: `url('data:image/svg+xml;utf8,${triangle}')`,
-  touchAction: 'pan-x'
+  touchAction: 'pan-x',
+  width: 22,
+  zIndex: 2
 }
 
 export const trackStyle = {
-  transform: 'translate(0%, -45%)',
-  position: 'absolute',
-  height: 3,
-  border: '1px solid #00000080',
   background: '#fff',
-  zIndex: 1,
+  border: '1px solid #00000080',
   cursor: 'pointer',
+  height: 3,
+  position: 'absolute',
+  transform: 'translate(0%, -45%)',
+  zIndex: 1
 }
