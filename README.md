@@ -1,4 +1,4 @@
 # stripe-projector
 Semi-automatic art.
 
-![stripes](https://user-images.githubusercontent.com/6414141/88430466-7c3fdc00-cdc6-11ea-9acb-f400c547b213.png)
+![stripes](https://user-images.githubusercontent.com/6414141/89051945-f9b5a000-d322-11ea-945c-2be4d91eba99.png)
