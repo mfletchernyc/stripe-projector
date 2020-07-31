@@ -1,5 +1,5 @@
 const checkInputs = (min, max) => {
-  if (!Number.isInteger(min) || !Number.isInteger(max) || min >= max) {
+  if (!Number.isInteger(min) || !Number.isInteger(max) || min > max) {
     throw new Error('Error: min/max settings must be ints with max > min.')
   }
 }

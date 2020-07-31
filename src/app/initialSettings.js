@@ -24,9 +24,9 @@ const limits = {
     min: -10,
     max: 10
   },
-  colorLimits: {      // According to taste.
-    min: 2,
-    max: 5
+  colorLimits: {      // To taste. Screen can support six max.
+    min: 1,
+    max: 4
   },
   opacityLimits: {    // Percentages.
     min: 5,
