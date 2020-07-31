@@ -24,9 +24,9 @@ const limits = {
     min: -10,
     max: 10
   },
-  colorLimits: {      // To taste. Screen can support six max.
-    min: 1,
-    max: 4
+  colorLimits: {      // According to taste.
+    min: 1,           // Standard iPad currently supports
+    max: 4            // five max; iPad Pro supports six.
   },
   opacityLimits: {    // Percentages.
     min: 5,
