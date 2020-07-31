@@ -20,9 +20,9 @@ const Settings = () => {
     }
   }, [debug, settings])
 
-  const renderSimpleSlider = (setting) => (
+  const renderSimpleSlider = (setting, label = setting) => (
     <>
-      {`${setting}:`}
+      {`${label}:`}
       <Slider
         values={settings[`${setting}`]}
         onChange={(values) => dispatch(changeValue(
@@ -32,9 +32,9 @@ const Settings = () => {
     </>
   )
 
-  const renderCompoundSlider = (setting) => (
+  const renderCompoundSlider = (setting, label = setting) => (
     <>
-      {`${setting}:`}
+      {`${label}:`}
       <Slider
         values={settings[`${setting}`]}
         onChange={(values) => dispatch(changeRange(
@@ -44,15 +44,19 @@ const Settings = () => {
     </>
   )
 
-  const speedControl = () => (
+  const delayControl = () => (
     mode === 'pop' ? 'cycleTime' : 'moveTime'
+  )
+
+  const delayControlLabel = () => (
+    mode === 'pop' ? 'pop delay' : 'move delay'
   )
 
   return (
     <>
       {renderCompoundSlider('opacity')}
       {renderCompoundSlider('width')}
-      {renderSimpleSlider(speedControl())}
+      {renderSimpleSlider(delayControl(), delayControlLabel())}
     </>
   )
 }

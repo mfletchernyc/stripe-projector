@@ -1,7 +1,7 @@
 .machine {
-  background: #ffffff55;
+  background: #ffffff66;
   display: grid;
-  font-size: 1.1em;
+  font-size: 1.2em;
   gap: 10px;
   margin: 20px;
   padding: 0 10px 10px;
@@ -9,6 +9,7 @@
   right: 0;
   top: 0;
   touch-action: none;
+  user-select: none;
   width: 150px;
   z-index: 9;
 }
@@ -20,10 +21,12 @@
   border-radius: 0;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.9em;
-  height: 40px;
+  font-size: 1em;
+  font-weight: 300;
+  height: 35px;
   line-height: 0;
   outline: none;
+  -webkit-tap-highlight-color: #00000000;
   width: 100%;
 }
 
@@ -37,11 +40,18 @@
   background: #ffffffaa;
 }
 
+.sharp span:first-child,
+.blur span:last-child,
+.pop span:first-child,
+.move span:last-child {
+  font-weight: 400;
+}
+
 .quantity {
   display: grid;
   gap: 10px;
   grid-template-columns: 66.6% auto;
-  margin: 10px 0 0;
+  margin: 10px 0 5px;
 }
 
 .total {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400');
 
 html, body, #root {
   height: 100%;
@@ -6,7 +6,7 @@ html, body, #root {
 }
 
 body {
-  font: 13px 'Source Sans Pro';
+  font: 300 13px 'Source Sans Pro';
   margin: 0;
 }
 

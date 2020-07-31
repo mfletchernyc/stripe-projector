@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import classNames from 'classnames'
 import Settings from '../settings/Settings'
 import ColorPicker from './ColorPicker'
 import useInterval from './useInterval'
-import { AddIcon, RemoveIcon, ResetIcon } from './svg'
 
 import {
   addStripe,
@@ -27,7 +27,7 @@ const Machine = () => {
     stripes,
     colors,
     background,
-    prefs: { mode }
+    prefs: { mode, type }
   } = useSelector(selectMachine)
 
   let colorPickerIndex = 0
@@ -86,38 +86,43 @@ const Machine = () => {
         <button
           type="button"
           className={styles.button}
+          onClick={() => dispatch(addStripe({ settings, colors }))}
+          // TO DO: register onTouchEnd for long press (w/o duplicating click).
+        >
+          add
+        </button>
+
+        <button
+          type="button"
+          className={styles.button}
           onClick={() => dispatch(removeStripe())}
         >
-          <RemoveIcon />
+          remove
         </button>
 
         <span className={styles.total}>
           {stripes.length.toString().padStart(2, '0')}
         </span>
-
-        <button
-          type="button"
-          className={styles.button}
-          onClick={() => dispatch(addStripe({ settings, colors }))}
-        >
-          <AddIcon />
-        </button>
       </section>
 
       <button
         type="button"
-        className={styles.button}
+        className={classNames(styles.button, styles[type])}
         onClick={() => dispatch(toggleType())}
       >
-        type
+        <span>sharp</span>
+        /
+        <span>blur</span>
       </button>
 
       <button
         type="button"
-        className={styles.button}
+        className={classNames(styles.button, styles[mode])}
         onClick={() => dispatch(toggleMode())}
       >
-        mode
+        <span>pop</span>
+        /
+        <span>move</span>
       </button>
 
       <section>
@@ -142,7 +147,7 @@ const Machine = () => {
         className={styles.button}
         onClick={() => reset()}
       >
-        <ResetIcon />
+        reset
       </button>
     </div>
   )

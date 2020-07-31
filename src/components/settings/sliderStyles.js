@@ -1,16 +1,16 @@
 // Slider needs style objects vs. css.
 
 const triangle = window.encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="16.5" viewBox="0 0 22 16.5">
-    <polygon fill="#ffffff" stroke="#00000080" stroke-miterlimit="10" points="11,15.5 1,0.5 21,0.5 "/>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="20" viewBox="0 0 28 20">
+    <polygon fill="#80808033" stroke="#00000099" stroke-miterlimit="10" points="14,19 1,0.5 27,0.5 "/>
   </svg>`
 )
 
 export const sliderStyle = {
   height: 20,
-  margin: '20px 5px 5px',
+  margin: '22px 13px 5px',
   position: 'relative',
-  width: 'calc(100% - 10px)'
+  width: 'calc(100% - 26px)'
 }
 
 export const railStyle = {
@@ -23,13 +23,13 @@ export const railStyle = {
 export const handleStyle = {
   background: `url('data:image/svg+xml;utf8,${triangle}')`,
   cursor: 'pointer',
-  height: 16.5,
-  marginLeft: -11,
-  marginTop: -15.5,
+  height: 20,
+  marginLeft: -14,
+  marginTop: -19,
   position: 'absolute',
   textAlign: 'center',
   touchAction: 'pan-x',
-  width: 22,
+  width: 28,
   zIndex: 2
 }
 
