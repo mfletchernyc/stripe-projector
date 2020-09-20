@@ -1,11 +1,21 @@
-import React from 'react';
+import React from 'react'
 
-import './Projector.css';
+import Display from './components/display/Display'
+import Machine from './components/machine/Machine'
+import './projector.css'
 
 const Projector = () => (
   <div className="Projector">
-    [placeholder]
+    <Display />
+    <Machine />
   </div>
 )
 
-export default Projector;
+// No double-tap zoom. https://stackoverflow.com/a/56393464/2266534
+document.addEventListener('touchstart', (event) => {
+  if (event.touches.length > 1) {
+    event.preventDefault()
+  }
+}, { passive: false })
+
+export default Projector
