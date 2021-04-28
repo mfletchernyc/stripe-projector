@@ -1,10 +1,14 @@
-const checkInputs = (min, max, unique) => {
+const checkInputs = (min, max, type) => {
   if (!Number.isInteger(min) || !Number.isInteger(max) || min > max) {
     throw new Error('Error: min/max params must be ints with max > min.')
   }
 
-  if (unique && max === min) {
+  if (type === 'unique' && max === min) {
     throw new Error('Error: min/max params must be unique integers.')
+  }
+
+  if (type === 'natural' && (min < 1 || max < 1)) {
+    throw new Error('Error: min/max params must be positive integers.')
   }
 }
 
@@ -15,7 +19,7 @@ export const randomInteger = (min, max) => { // Inclusive.
 }
 
 export const randomRange = (min, max) => {
-  checkInputs(min, max, true)
+  checkInputs(min, max, 'unique')
 
   const x = randomInteger(min, max)
   const y = randomInteger(min, max)
@@ -27,9 +31,11 @@ export const randomRange = (min, max) => {
 
 export const randomColor = () => `#${Math.floor(
   Math.random() * 16777215
-).toString(16)}`
+).toString(16).padStart(6, '0')}`
 
 export const randomColorArray = (minLength, maxLength) => {
+  checkInputs(minLength, maxLength, 'natural')
+
   const colors = []
   const total = minLength + Math.floor(Math.random() * (maxLength - minLength + 1))
 
