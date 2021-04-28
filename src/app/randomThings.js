@@ -1,6 +1,10 @@
-const checkInputs = (min, max) => {
+const checkInputs = (min, max, unique) => {
   if (!Number.isInteger(min) || !Number.isInteger(max) || min > max) {
-    throw new Error('Error: min/max settings must be ints with max > min.')
+    throw new Error('Error: min/max params must be ints with max > min.')
+  }
+
+  if (unique && max === min) {
+    throw new Error('Error: min/max params must be unique integers.')
   }
 }
 
@@ -11,7 +15,7 @@ export const randomInteger = (min, max) => { // Inclusive.
 }
 
 export const randomRange = (min, max) => {
-  checkInputs(min, max)
+  checkInputs(min, max, true)
 
   const x = randomInteger(min, max)
   const y = randomInteger(min, max)
