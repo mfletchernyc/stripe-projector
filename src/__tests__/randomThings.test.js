@@ -1,5 +1,7 @@
 import * as rt from '../app/randomThings'
 
+const hexColorRegExp = /^#[a-f0-9]{6}$/
+
 describe('random number generation...', () => {
   it('returns random int within requested (inclusive) limits', () => {
     const randomInteger = rt.randomInteger(0, 1)
@@ -43,7 +45,7 @@ describe('random number generation...', () => {
 describe('random color generation...', () => {
   it('returns random hex color', () => {
     expect(rt.randomColor()).toEqual(
-      expect.stringMatching(/^#[a-f0-9]{6}$/)
+      expect.stringMatching(hexColorRegExp)
     )
   })
 
@@ -54,7 +56,7 @@ describe('random color generation...', () => {
 
     randomColorArray.forEach((color) => {
       expect(color).toEqual(
-        expect.stringMatching(/^#[a-f0-9]{6}$/)
+        expect.stringMatching(hexColorRegExp)
       )
     })
 
